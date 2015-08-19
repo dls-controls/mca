@@ -65,7 +65,7 @@ record(ao,"$(P)PresetReal") {
   field(PREC, "2")
 }
 
-record(bi,"$(P)HardwareAcquiring") {
+record(bi,"$(P)HardwareAcq") {
   field(DTYP, "asynInt32")
   field(INP,  "@asyn($(PORT),0)MCA_ACQUIRING")
   field(ZNAM, "Done")

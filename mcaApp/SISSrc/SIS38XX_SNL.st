@@ -35,7 +35,7 @@ assign  ReadArray to {};
 int     ReadArrays; assign ReadArrays to "{P}DoReadAll";
 monitor ReadArrays; evflag ReadArraysMon; sync ReadArrays ReadArraysMon;
 
-int     HardwareAcquiring; assign HardwareAcquiring to "{P}HardwareAcquiring";
+int     HardwareAcquiring; assign HardwareAcquiring to "{P}HardwareAcq";
 monitor HardwareAcquiring; evflag HardwareAcquiringMon; sync HardwareAcquiring HardwareAcquiringMon;
 
 int     SNL_Connected;  assign SNL_Connected      to "{P}SNL_Connected";
