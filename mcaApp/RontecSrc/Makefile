@@ -18,7 +18,7 @@ LIBRARY_IOC += mcaRontec
 ## <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 mcaRontec_SRCS += drvMcaRontec.c
 mcaRontec_LIBS += busy
-mcaRontec_LIBS += calc sscan autosave
+mcaRontec_LIBS += calc sscan
 mcaRontec_LIBS += asyn 
 mcaRontec_LIBS += $(EPICS_BASE_IOC_LIBS)
 
@@ -31,7 +31,7 @@ mcaRontecApp_SRCS_vxWorks += mcaRontec_registerRecordDeviceDriver.cpp
 mcaRontecApp_LIBS += mca
 mcaRontecApp_LIBS += mcaRontec
 mcaRontecApp_LIBS += busy
-mcaRontecApp_LIBS += calc sscan autosave
+mcaRontecApp_LIBS += calc sscan
 mcaRontecApp_LIBS += asyn
 mcaRontecApp_SYS_LIBS_cygwin32 += $(CYGWIN_RPC_LIB)
 mcaRontecApp_LIBS += $(EPICS_BASE_IOC_LIBS)
@@ -43,7 +43,7 @@ LIBRARY_IOC_WIN32 += mcaBrukerQM100
 
 ## <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
 mcaBrukerQM100_SRCS += drvMcaBrukerQM100.c
-mcaBrukerQM100_LIBS += busy calc sscan autosave
+mcaBrukerQM100_LIBS += busy calc sscan
 mcaBrukerQM100_LIBS += asyn 
 mcaBrukerQM100_LIBS += $(EPICS_BASE_IOC_LIBS)
 
@@ -54,7 +54,7 @@ PROD_IOC_WIN32 += mcaBrukerQM100App
 mcaBrukerQM100App_SRCS_WIN32 += mcaBrukerQM100_registerRecordDeviceDriver.cpp mcaBrukerQM100Main.cpp
 mcaBrukerQM100App_LIBS += mca
 mcaBrukerQM100App_LIBS += mcaBrukerQM100
-mcaBrukerQM100App_LIBS += busy calc sscan autosave
+mcaBrukerQM100App_LIBS += busy calc sscan
 mcaBrukerQM100App_LIBS += asyn
 mcaBrukerQM100App_LIBS += $(EPICS_BASE_IOC_LIBS)
 
