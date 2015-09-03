@@ -23,6 +23,7 @@ DB += icb_adc.db
 DB += icb_amp.db
 DB += icb_hvps.db
 DB += icb_tca.db
+DB += dlsMcaCanberra.template
 DB += mca.db
 DB += mcaReadNotify.db
 DB += mcaStdRecords.template
