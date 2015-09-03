@@ -5,7 +5,7 @@ include $(TOP)/configure/CONFIG
 #=============================
 
 # If your system supports the APS DMA library written by Andrew Johnson uncomment this line; if not comment this line out
-USR_CPPFLAGS += -DUSE_DMA
+#USR_CPPFLAGS += -DUSE_DMA
 
 # <name>.dbd will be created from <name>Include.dbd
 DBD += SIS38XXSupport.dbd
