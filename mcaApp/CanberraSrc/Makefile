@@ -4,6 +4,9 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
+# libnet needs this
+### USR_CFLAGS_darwin-ppc += -g `libnet-config --defines` 
+
 #=============================
 
 # <name>.dbd will be created from <name>Include.dbd
@@ -29,13 +32,12 @@ INC         += nmcmsgdef.h icb_sys_defs.h ndtypes.h campardef.h
 # WIN32                  USE_WINPCAP                WinPcap
 
 
-# vxWorks
-LIBRARY_IOC_vxWorks      += mcaCanberra
-PROD_IOC_vxWorks         += mcaAIM
-USR_CFLAGS_vxWorks       += -DUSE_SOCKETS
-USR_CPPFLAGS_vxWorks     += -DUSE_SOCKETS
-mcaCanberra_SRCS_vxWorks += llcProtocol.c
-mcaCanberra_SRCS_vxWorks += llcSocket.c
+#=============================
+LIBRARY_IOC_vxWorks  += mcaCanberra
+LIBRARY_IOC_cygwin32 += mcaCanberra
+LIBRARY_IOC_WIN32    += mcaCanberra
+
+USR_CFLAGS_vxWorks += -DUSE_SOCKETS
 # On vxWorks 5.5 and later we use muxTkLib, so uncomment the following line.
 # On earlier versions there are bugs in muxTkLib and we use muxLib instead.
 #USR_CFLAGS_vxWorks += -DUSE_MUXTKLIB
@@ -48,19 +50,23 @@ LIBRARY_IOC_Linux += mcaCanberra
 PROD_IOC_Linux    += mcaAIM
 PROD_IOC_Linux    += nmcDemo
 endif
+
 # We can only use LLC sockets on Linux versions
 # more recent than 2.6.13 due to a show-shopper bug in the LLC socket
 # layer that was fixed in 2.6.14. 
-#USR_CFLAGS_Linux += -DUSE_SOCKETS
+# up45: 22-05-2008: when merging vendor 6-10 into DLS trunk:
+#                   We dont yet use this recent kernel but we do need to build for linux
+#                   and we don't have libnet on site.
+USR_CFLAGS_Linux += -DUSE_SOCKETS
 # If LLC sockets are not being used on Linux, and libnet is being used instead, then
 # uncomment the following lines.
-USR_CFLAGS_Linux           += -DUSE_LIBNET
-USR_CPPFLAGS_Linux         += -DUSE_LIBNET
-USR_CFLAGS_Linux           += -g `libnet-config --defines` 
-USR_CPPFLAGS_Linux         += -g `libnet-config --defines` 
-mcaCanberra_SYS_LIBS_Linux += net pcap
-mcaAIM_SYS_LIBS_Linux      += net pcap
-nmcDemo_SYS_LIBS_Linux     += net pcap
+### USR_CFLAGS_Linux           += -DUSE_LIBNET
+### USR_CPPFLAGS_Linux         += -DUSE_LIBNET
+### USR_CFLAGS_Linux           += -g `libnet-config --defines` 
+### USR_CPPFLAGS_Linux         += -g `libnet-config --defines` 
+### mcaCanberra_SYS_LIBS_Linux += net pcap
+### mcaAIM_SYS_LIBS_Linux      += net pcap
+### nmcDemo_SYS_LIBS_Linux     += net pcap
 
 # Darwin
 LIBRARY_IOC_Darwin          += mcaCanberra
@@ -109,8 +115,10 @@ mcaCanberra_SRCS += icb_control_subs2.c
 mcaCanberra_SRCS += icb_user_subs.c
 mcaCanberra_SRCS += icb_show_modules.c
 mcaCanberra_SRCS += drvIcbAsyn.c
-mcaCanberra_SRCS += DSA2000.cpp
+#mcaCanberra_SRCS += DSA2000.cpp
 mcaCanberra_SRCS += mcaCanberraRegister.c
+mcaCanberra_SRCS_vxWorks += llcProtocol.c
+mcaCanberra_SRCS_vxWorks += llcSocket.c
 
 mcaCanberra_LIBS += asyn 
 mcaCanberra_LIBS += $(EPICS_BASE_IOC_LIBS)
