@@ -1,3 +1,13 @@
+# % macro, P, Device Prefix
+# % macro, PORT, Asyn port
+# % macro, SCALER, Scaler card PV
+# % macro, name, Object and gui association name
+# % macro, edmMacros, macro to pass to edm screen
+# % gui, $(name), edm, sis3820.edl, $(edmMacros)
+# % macro, gda_name, Name for GDA
+# % macro, gda_desc, Description for GDA
+# %gdatag,template,mcaGroup,$(gda_name),$(gda_desc)
+
 # SIS38XX.template
 # Mark Rivers
 # April 29, 2011
@@ -9,6 +19,8 @@ record(bi,"$(P)SNL_Connected") {
   field(OSV,  "NO_ALARM")
 }
 
+# %gdatag,binary,rw,$(gda_name),ERASE,Clear all spectrums
+record(seq,"$(P)EraseAll") {
 record(bo,"$(P)EraseAll") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_ERASE")
@@ -18,6 +30,8 @@ record(bo,"$(P)EraseAll") {
   field(FLNK, "$(P)ReadAllOnce")
 }
 
+# %gdatag,binary,rw,$(gda_name),ERASESTART,Clear all spectrums and start acquiring
+record(seq,"$(P)EraseStart") {
 record(bo,"$(P)EraseStart") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_ERASE")
@@ -27,6 +41,8 @@ record(bo,"$(P)EraseStart") {
   field(FLNK, "$(P)StartAll.PROC")
 }
 
+# %gdatag,binary,rw,$(gda_name),START,Start acquiring
+record(seq,"$(P)StartAll") {
 record(bo,"$(P)StartAll") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_START_ACQUIRE")
@@ -44,11 +60,13 @@ record(bo,"$(P)SetAcquiring") {
   field(FLNK, "$(P)SetClientWait.PROC")
 }
 
+# %gdatag,binary,ro,$(gda_name),ACQ,Acquiring status
 record(busy,"$(P)Acquiring") {
   field(ZNAM, "Done")
   field(ONAM, "Acquiring")
 }
 
+# %gdatag,binary,rw,$(gda_name),STOP,Stop acquiring
 record(bo,"$(P)StopAll") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_STOP_ACQUIRE")
@@ -57,6 +75,8 @@ record(bo,"$(P)StopAll") {
   field(VAL,  "1")
 }
 
+# %gdatag,pv,rw,$(gda_name),TACQ,Set total acquisition time
+#% autosave 2 VAL
 record(ao,"$(P)PresetReal") {
   field(PINI, "YES")
   field(DTYP, "asynFloat64")
@@ -73,6 +93,7 @@ record(bi,"$(P)HardwareAcq") {
   field(SCAN, "I/O Intr")
 }
 
+# %gdatag,pv,ro,$(gda_name),TREAL,Real time since start of acquisition
 record(ai,"$(P)ElapsedReal") {
   field(DTYP, "asynFloat64")
   field(INP,  "@asyn($(PORT),0)MCA_ELAPSED_REAL")
@@ -80,6 +101,8 @@ record(ai,"$(P)ElapsedReal") {
   field(SCAN, "I/O Intr")
 }
 
+# %gdatag,pv,rw,$(gda_name),READRATE,Data update rate,<pv>.SCAN
+#% autosave 2 VAL SCAN
 record(bo,"$(P)ReadAll") {
   field(SCAN, "1 second")
   field(DISV, "0")
@@ -99,6 +122,8 @@ record(bo,"$(P)DoReadAll") {
   field(ONAM, "Read")
 }
 
+# %gdatag,pv,rw,$(gda_name),NBINS,Number of bins to use in spectrum
+#% autosave 2 VAL
 record(longout,"$(P)NuseAll") {
   field(PINI, "YES")
   field(DTYP, "asynInt32")
@@ -111,6 +136,8 @@ record(longin,"$(P)CurrentChannel") {
   field(SCAN, "I/O Intr")
 }
 
+# %gdatag,pv,rw,$(gda_name),TDWELL,Set integration time [s] for incrementing bin number
+#% autosave 2 VAL
 record(ao,"$(P)Dwell") {
   field(PINI, "YES")
   field(DTYP, "asynFloat64")
@@ -119,6 +146,8 @@ record(ao,"$(P)Dwell") {
   field(PREC, "3")
 }
 
+# %gdatag,binary,rw,$(gda_name),BINADV,Set internal or external bin advance signal
+#% autosave 2 VAL
 record(ao,"$(P)PresetReal") {
   field(PINI, "YES")
   field(DTYP, "asynFloat64")
@@ -154,6 +183,7 @@ record(bo,"$(P)SoftwareChannelAdvance") {
 # Binary record to enable switching input 1
 # between internal 25 MHz (SIS3801) or 50MHz (SIS3820) reference clock and
 # and external source 
+#% autosave 2 VAL
 record(bo, "$(P)Channel1Source") {
   field(PINI, "YES")
   field(DTYP, "asynInt32")
@@ -162,6 +192,8 @@ record(bo, "$(P)Channel1Source") {
   field(ONAM, "External")
 }
 
+# %gdatag,pv,rw,$(gda_name),EXTPRE,External bin advance prescaler
+#% autosave 2 VAL
 record(longout,"$(P)Prescale") {
   field(PINI, "YES")
   field(DTYP, "asynInt32")
@@ -169,6 +201,7 @@ record(longout,"$(P)Prescale") {
   field(VAL,  "1")
 }
 
+#% autosave 2 VAL
 record(bo,"$(P)EnableClientWait") {
   field(PINI, "YES")
   field(ZNAM, "Disable")
@@ -185,12 +218,15 @@ record(bo,"$(P)SetClientWait") {
   field(ZNAM, "Done")
 }
 
+#% autosave 2 VAL
 record(busy,"$(P)ClientWait") {
 }
 
 # This record reflects the current mode of the
 # driver.
 # Can be either MCA or SCALER (or UNDEFINED).
+# Use it to disable the autocount feature of the 
+# scaler record when in MCA mode.
 record(mbbi, "$(P)AcquireMode") {
   field(DESC, "SIS38XX acquire mode")
   field(DTYP, "asynInt32")
@@ -211,6 +247,7 @@ record(calcout, "$(P)DisableAutoCount") {
 
 # MUXOUT analogue record to enable switching
 # of the multiplexed output on output 7.
+#% autosave 2 VAL
 record(ao, "$(P)MUXOutput") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT) 0)SIS38XX_MUX_OUT")
@@ -223,6 +260,7 @@ record(ao, "$(P)MUXOutput") {
 
 # Toggle the USER LED which also toggles the
 # control output signal 8.
+#% autosave 2 VAL
 record(bo, "$(P)UserLED") {
   field(DESC, "Flash user LED")
   field(DTYP, "asynInt32")
@@ -232,6 +270,7 @@ record(bo, "$(P)UserLED") {
   field(ONAM, "High/On")
 }
 
+#% autosave 2 VAL
 record(mbbo, "$(P)InputMode") {
   field(PINI, "YES")
   field(DESC, "SIS38XX input mode")
@@ -254,6 +293,7 @@ record(mbbo, "$(P)InputMode") {
   field(VAL,  "3")
 }
 
+#% autosave 2 VAL
 record(mbbo, "$(P)OutputMode") {
   field(PINI, "YES")
   field(DESC, "SIS38XX output mode")
