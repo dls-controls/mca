@@ -1,0 +1,67 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 17
+y 712
+w 186
+h 128
+font "arial-medium-r-18.0"
+ctlFont "arial-medium-r-18.0"
+btnFont "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 0
+ctlBgColor1 index 0
+ctlBgColor2 index 14
+topShadowColor index 0
+botShadowColor index 14
+showGrid
+snapToGrid
+endScreenProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 70
+w 180
+h 40
+fgColor index 25
+bgColor index 3
+inconsistentColor index 30
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S):USERLED"
+indicatorPv "$(P)$(S):USERLED"
+font "arial-medium-r-18.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 10
+w 145
+h 48
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 0
+useDisplayBg
+value {
+  "Toggle the USER LED"
+  "also toggle the control"
+  "output signal 8."
+}
+autoSize
+endObjectProperties
+

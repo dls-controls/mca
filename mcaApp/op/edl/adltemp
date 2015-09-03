@@ -1,0 +1,79 @@
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 60
+w 61
+h 20
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+icon
+numPvs 14
+numDsps 7
+displayFileName {
+  0 ../adl/mca.edl
+  1 ../adl/mca.edl
+  2 ../adl/xxIcbAdc.edl
+  3 ../adl/xxIcbAmp.edl
+  4 ../adl/xxIcbHVPS.edl
+  5 ../adl/xxIcbTCA.edl
+  6 ../adl/dsp9660Gain.edl
+}
+menuLabel {
+  0 AIM MCA display #1
+  1 AIM MCA display #2
+  2 Canberra ADC
+  3 Canberra Amp
+  4 Canberra HVPS
+  5 Canberra TCA
+  6 Canberra DSP 9660
+}
+symbols {
+  0 "P=mcaTest:,M=aim_adc1"
+  1 "P=mcaTest:,M=aim_adc2"
+  2 "P=mcaTest:,ADC=adc1"
+  3 "P=mcaTest:,AMP=amp1"
+  4 "P=mcaTest:,HVPS=hvps1"
+  5 "P=mcaTest:,TCA=tca1"
+  6 "P=mcaTest:,DSP=dsp1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 85
+w 61
+h 20
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+icon
+numPvs 4
+numDsps 2
+displayFileName {
+  0 ../adl/mca.edl
+  1 ../adl/RontecXFlash.edl
+}
+menuLabel {
+  0 Rontec MCA
+  1 Rontec Setup
+}
+symbols {
+  0 "P=mcaTest:,M=mca1"
+  1 "P=mcaTest:,R=Rontec1,M=mca1,PORT=serial1"
+}
+endObjectProperties

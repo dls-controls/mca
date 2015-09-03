@@ -1,0 +1,176 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 718
+y 188
+w 330
+h 120
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 4
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 77
+y 60
+w 114
+h 20
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Canberra MCA electronics"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 7
+y 17
+w 309
+h 29
+lineColor index 50
+fill
+fillColor index 50
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 114
+y 19
+w 96
+h 25
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "MCA Test"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 77
+y 85
+w 114
+h 20
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Rontec MCA electronics"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 60
+w 61
+h 20
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+icon
+numPvs 14
+numDsps 7
+displayFileName {
+  0 mca.edl
+  1 mca.edl
+  2 xxIcbAdc.edl
+  3 xxIcbAmp.edl
+  4 xxIcbHVPS.edl
+  5 xxIcbTCA.edl
+  6 dsp9660Gain.edl
+}
+menuLabel {
+  0 AIM MCA display #1
+  1 AIM MCA display #2
+  2 Canberra ADC
+  3 Canberra Amp
+  4 Canberra HVPS
+  5 Canberra TCA
+  6 Canberra DSP 9660
+}
+symbols {
+  0 "P=mcaTest:,M=aim_adc1"
+  1 "P=mcaTest:,M=aim_adc2"
+  2 "P=mcaTest:,ADC=adc1"
+  3 "P=mcaTest:,AMP=amp1"
+  4 "P=mcaTest:,HVPS=hvps1"
+  5 "P=mcaTest:,TCA=tca1"
+  6 "P=mcaTest:,DSP=dsp1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 11
+y 85
+w 61
+h 20
+fgColor index 14
+bgColor index 4
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+icon
+numPvs 4
+numDsps 2
+displayFileName {
+  0 mca.edl
+  1 RontecXFlash.edl
+}
+menuLabel {
+  0 Rontec MCA
+  1 Rontec Setup
+}
+symbols {
+  0 "P=mcaTest:,M=mca1"
+  1 "P=mcaTest:,R=Rontec1,M=mca1,PORT=serial1"
+}
+endObjectProperties
+

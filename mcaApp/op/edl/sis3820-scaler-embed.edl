@@ -1,0 +1,3762 @@
+4 0 1
+beginScreenProperties
+major 4
+minor 0
+release 1
+x 977
+y 314
+w 740
+h 635
+font "arial-medium-r-18.0"
+ctlFont "arial-medium-r-18.0"
+btnFont "arial-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 14
+ctlFgColor2 index 3
+ctlBgColor1 index 10
+ctlBgColor2 index 14
+topShadowColor index 1
+botShadowColor index 11
+title "Temperatures - $(dom)"
+showGrid
+snapToGrid
+gridSize 5
+disableScroll
+endScreenProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 10
+w 734
+h 496
+lineColor index 14
+fill
+fillColor index 5
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x -45
+y -700
+w 147
+h 20
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Count mode:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 495
+y 595
+w 90
+h 25
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Counting:"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 25
+w 90
+h 25
+controlPv "$(P)$(S).S1"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 110
+y 520
+w 125
+h 25
+fgColor index 25
+bgColor index 3
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S):AutoCount"
+indicatorPv "$(P)$(S).CONT"
+font "arial-medium-r-14.0"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 20
+w 95
+h 35
+controlPv "$(P)$(S).PR1"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 0
+w 19
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  #  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Button)
+object activeButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 575
+y 590
+w 140
+h 30
+fgColor index 14
+onColor index 4
+offColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).CNT"
+indicatorPv "$(P)$(S).CNT"
+onLabel "stop"
+offLabel "start"
+labelType "literal"
+3d
+font "arial-medium-r-18.0"
+objType "controls"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 360
+y 550
+w 85
+h 25
+controlPv "$(P)$(S).TP"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 275
+y 555
+w 73
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Count time:"
+}
+autoSize
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 360
+y 590
+w 85
+h 25
+controlPv "$(P)$(S).T"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 630
+y 520
+w 85
+h 25
+controlPv "$(P)$(M)MUXOutput"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 480
+y 520
+w 124
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "MUX OUT channel:"
+}
+autoSize
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 630
+y 550
+w 85
+h 25
+fgColor index 14
+bgColor index 3
+inconsistentColor index 14
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(M)Channel1Source"
+indicatorPv "$(P)$(M)Channel1Source"
+font "arial-medium-r-12.0"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 25
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G1"
+indicatorPv "$(P)$(S).G1"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 21
+w 100
+h 34
+controlPv "$(P)$(S).NM1"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 25
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 30
+y 0
+w 86
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "   Description   "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 125
+y 0
+w 96
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "   Actual Count   "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 230
+y 0
+w 87
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  Preset Count  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 325
+y 0
+w 39
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  Gate  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 55
+w 90
+h 25
+controlPv "$(P)$(S).S2"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 50
+w 95
+h 35
+controlPv "$(P)$(S).PR2"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 55
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G2"
+indicatorPv "$(P)$(S).G2"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 51
+w 100
+h 34
+controlPv "$(P)$(S).NM2"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 55
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "2"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 85
+w 90
+h 25
+controlPv "$(P)$(S).S3"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 80
+w 95
+h 35
+controlPv "$(P)$(S).PR3"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 85
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G3"
+indicatorPv "$(P)$(S).G3"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 81
+w 100
+h 34
+controlPv "$(P)$(S).NM3"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 85
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "3"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 115
+w 90
+h 25
+controlPv "$(P)$(S).S4"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 110
+w 95
+h 35
+controlPv "$(P)$(S).PR4"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 115
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G4"
+indicatorPv "$(P)$(S).G4"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 111
+w 100
+h 34
+controlPv "$(P)$(S).NM4"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 115
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "4"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 145
+w 90
+h 25
+controlPv "$(P)$(S).S5"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 140
+w 95
+h 35
+controlPv "$(P)$(S).PR5"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 145
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G5"
+indicatorPv "$(P)$(S).G5"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 141
+w 100
+h 34
+controlPv "$(P)$(S).NM5"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 145
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "5"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 175
+w 90
+h 25
+controlPv "$(P)$(S).S6"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 170
+w 95
+h 35
+controlPv "$(P)$(S).PR6"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 175
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G6"
+indicatorPv "$(P)$(S).G6"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 171
+w 100
+h 34
+controlPv "$(P)$(S).NM6"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 175
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "6"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 205
+w 90
+h 25
+controlPv "$(P)$(S).S7"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 200
+w 95
+h 35
+controlPv "$(P)$(S).PR7"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 205
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G7"
+indicatorPv "$(P)$(S).G7"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 201
+w 100
+h 34
+controlPv "$(P)$(S).NM7"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 205
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "7"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 235
+w 90
+h 25
+controlPv "$(P)$(S).S8"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 230
+w 95
+h 35
+controlPv "$(P)$(S).PR8"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 235
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G8"
+indicatorPv "$(P)$(S).G8"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 231
+w 100
+h 34
+controlPv "$(P)$(S).NM8"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 235
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "8"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 265
+w 90
+h 25
+controlPv "$(P)$(S).S9"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 260
+w 95
+h 35
+controlPv "$(P)$(S).PR9"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 265
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G9"
+indicatorPv "$(P)$(S).G9"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 261
+w 100
+h 34
+controlPv "$(P)$(S).NM9"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 265
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "9"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 295
+w 90
+h 25
+controlPv "$(P)$(S).S10"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 290
+w 95
+h 35
+controlPv "$(P)$(S).PR10"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 295
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G10"
+indicatorPv "$(P)$(S).G10"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 291
+w 100
+h 34
+controlPv "$(P)$(S).NM10"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 295
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "10"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 325
+w 90
+h 25
+controlPv "$(P)$(S).S11"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 320
+w 95
+h 35
+controlPv "$(P)$(S).PR11"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 325
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G11"
+indicatorPv "$(P)$(S).G11"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 321
+w 100
+h 34
+controlPv "$(P)$(S).NM11"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 325
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "11"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 355
+w 90
+h 25
+controlPv "$(P)$(S).S12"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 350
+w 95
+h 35
+controlPv "$(P)$(S).PR12"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 355
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G12"
+indicatorPv "$(P)$(S).G12"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 351
+w 100
+h 34
+controlPv "$(P)$(S).NM12"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 355
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "12"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 385
+w 90
+h 25
+controlPv "$(P)$(S).S13"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 380
+w 95
+h 35
+controlPv "$(P)$(S).PR13"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 385
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G13"
+indicatorPv "$(P)$(S).G13"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 381
+w 100
+h 34
+controlPv "$(P)$(S).NM13"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 385
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "13"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 415
+w 90
+h 25
+controlPv "$(P)$(S).S14"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 410
+w 95
+h 35
+controlPv "$(P)$(S).PR14"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 415
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G14"
+indicatorPv "$(P)$(S).G14"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 411
+w 100
+h 34
+controlPv "$(P)$(S).NM14"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 415
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "14"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 445
+w 90
+h 25
+controlPv "$(P)$(S).S15"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 440
+w 95
+h 35
+controlPv "$(P)$(S).PR15"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 445
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G15"
+indicatorPv "$(P)$(S).G15"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 441
+w 100
+h 34
+controlPv "$(P)$(S).NM15"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 445
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "15"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 130
+y 475
+w 90
+h 25
+controlPv "$(P)$(S).S16"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 225
+y 470
+w 95
+h 35
+controlPv "$(P)$(S).PR16"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 325
+y 475
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G16"
+indicatorPv "$(P)$(S).G16"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 25
+y 471
+w 100
+h 34
+controlPv "$(P)$(S).NM16"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 5
+y 475
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "16"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 25
+w 90
+h 25
+controlPv "$(P)$(S).S17"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 20
+w 95
+h 35
+controlPv "$(P)$(S).PR17"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 25
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G17"
+indicatorPv "$(P)$(S).G17"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 21
+w 100
+h 34
+controlPv "$(P)$(S).NM17"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 25
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "17"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 55
+w 90
+h 25
+controlPv "$(P)$(S).S18"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 50
+w 95
+h 35
+controlPv "$(P)$(S).PR18"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 55
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G18"
+indicatorPv "$(P)$(S).G18"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 51
+w 100
+h 34
+controlPv "$(P)$(S).NM18"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 55
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "18"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 85
+w 90
+h 25
+controlPv "$(P)$(S).S19"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 80
+w 95
+h 35
+controlPv "$(P)$(S).PR19"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 85
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G19"
+indicatorPv "$(P)$(S).G19"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 81
+w 100
+h 34
+controlPv "$(P)$(S).NM19"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 85
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "19"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 115
+w 90
+h 25
+controlPv "$(P)$(S).S20"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 110
+w 95
+h 35
+controlPv "$(P)$(S).PR20"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 115
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G20"
+indicatorPv "$(P)$(S).G20"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 111
+w 100
+h 34
+controlPv "$(P)$(S).NM20"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 115
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "20"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 145
+w 90
+h 25
+controlPv "$(P)$(S).S21"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 140
+w 95
+h 35
+controlPv "$(P)$(S).PR21"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 145
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G21"
+indicatorPv "$(P)$(S).G21"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 141
+w 100
+h 34
+controlPv "$(P)$(S).NM21"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 145
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "21"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 175
+w 90
+h 25
+controlPv "$(P)$(S).S22"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 170
+w 95
+h 35
+controlPv "$(P)$(S).PR22"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 175
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G22"
+indicatorPv "$(P)$(S).G22"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 171
+w 100
+h 34
+controlPv "$(P)$(S).NM22"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 175
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "22"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 205
+w 90
+h 25
+controlPv "$(P)$(S).S23"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 200
+w 95
+h 35
+controlPv "$(P)$(S).PR23"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 205
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G23"
+indicatorPv "$(P)$(S).G23"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 201
+w 100
+h 34
+controlPv "$(P)$(S).NM23"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 205
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "23"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 235
+w 90
+h 25
+controlPv "$(P)$(S).S24"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 230
+w 95
+h 35
+controlPv "$(P)$(S).PR24"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 235
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G24"
+indicatorPv "$(P)$(S).G24"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 231
+w 100
+h 34
+controlPv "$(P)$(S).NM24"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 235
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "24"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 265
+w 90
+h 25
+controlPv "$(P)$(S).S25"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 260
+w 95
+h 35
+controlPv "$(P)$(S).PR25"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 265
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G25"
+indicatorPv "$(P)$(S).G25"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 261
+w 100
+h 34
+controlPv "$(P)$(S).NM25"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 265
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "25"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 295
+w 90
+h 25
+controlPv "$(P)$(S).S26"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 290
+w 95
+h 35
+controlPv "$(P)$(S).PR26"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 295
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G26"
+indicatorPv "$(P)$(S).G26"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 291
+w 100
+h 34
+controlPv "$(P)$(S).NM26"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 295
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "26"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 325
+w 90
+h 25
+controlPv "$(P)$(S).S27"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 320
+w 95
+h 35
+controlPv "$(P)$(S).PR27"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 325
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G27"
+indicatorPv "$(P)$(S).G27"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 321
+w 100
+h 34
+controlPv "$(P)$(S).NM27"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 325
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "27"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 355
+w 90
+h 25
+controlPv "$(P)$(S).S28"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 350
+w 95
+h 35
+controlPv "$(P)$(S).PR28"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 355
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G28"
+indicatorPv "$(P)$(S).G28"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 351
+w 100
+h 34
+controlPv "$(P)$(S).NM28"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 355
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "28"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 385
+w 90
+h 25
+controlPv "$(P)$(S).S29"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 380
+w 95
+h 35
+controlPv "$(P)$(S).PR29"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 385
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G29"
+indicatorPv "$(P)$(S).G29"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 381
+w 100
+h 34
+controlPv "$(P)$(S).NM29"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 385
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "29"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 415
+w 90
+h 25
+controlPv "$(P)$(S).S30"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 410
+w 95
+h 35
+controlPv "$(P)$(S).PR30"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 415
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G30"
+indicatorPv "$(P)$(S).G30"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 411
+w 100
+h 34
+controlPv "$(P)$(S).NM30"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 415
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "30"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 445
+w 90
+h 25
+controlPv "$(P)$(S).S31"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 440
+w 95
+h 35
+controlPv "$(P)$(S).PR31"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 445
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G31"
+indicatorPv "$(P)$(S).G31"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 441
+w 100
+h 34
+controlPv "$(P)$(S).NM31"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 445
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "31"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 500
+y 475
+w 90
+h 25
+controlPv "$(P)$(S).S32"
+fgColor index 16
+bgColor index 10
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 595
+y 470
+w 95
+h 35
+controlPv "$(P)$(S).PR32"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 695
+y 475
+w 40
+h 25
+fgColor index 14
+bgColor index 3
+selectColor index 4
+inconsistentColor index 0
+topShadowColor index 1
+botShadowColor index 11
+controlPv "$(P)$(S).G32"
+indicatorPv "$(P)$(S).G32"
+font "arial-medium-r-12.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 395
+y 471
+w 100
+h 34
+controlPv "$(P)$(S).NM32"
+fgColor index 25
+bgColor index 3
+fill
+font "arial-medium-r-12.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 475
+w 20
+h 25
+font "arial-bold-r-14.0"
+fontAlign "right"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "32"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 275
+y 520
+w 74
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Delay Time:"
+}
+autoSize
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 360
+y 520
+w 85
+h 25
+controlPv "$(P)$(S).DLY"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 520
+w 85
+h 25
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Count Mode:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 255
+y 590
+w 86
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Elapsed time:"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 450
+y 520
+w 8
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "s"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 450
+y 550
+w 8
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "s"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 450
+y 590
+w 8
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "s"
+}
+autoSize
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 695
+y 0
+w 39
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  Gate  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 600
+y 0
+w 87
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  Preset Count  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 495
+y 0
+w 96
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "   Actual Count   "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 400
+y 0
+w 86
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "   Description   "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 375
+y 0
+w 19
+h 14
+font "arial-bold-r-12.0"
+fontAlign "center"
+fgColor index 14
+bgColor index 6
+value {
+  "  #  "
+}
+autoSize
+border
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 480
+y 550
+w 86
+h 16
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Ch1 ref input:"
+}
+autoSize
+endObjectProperties
+
+# (Textentry)
+object TextentryClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 150
+y 550
+w 85
+h 25
+controlPv "$(P)$(S).TP1"
+displayMode "decimal"
+precision 4
+fgColor index 25
+bgColor index 3
+fill
+font "arial-bold-r-14.0"
+fontAlign "center"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 550
+w 135
+h 25
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "AutoCount Period:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 1
+release 0
+x 10
+y 590
+w 135
+h 25
+font "arial-medium-r-14.0"
+fgColor index 14
+bgColor index 10
+useDisplayBg
+value {
+  "Acquire Mode:"
+}
+endObjectProperties
+
+# (Textupdate)
+object TextupdateClass
+beginObjectProperties
+major 10
+minor 0
+release 0
+x 150
+y 590
+w 85
+h 25
+controlPv "$(P)$(M)AcquireMode"
+fgColor index 16
+fgAlarm
+bgColor index 10
+fill
+font "arial-medium-r-14.0"
+fontAlign "center"
+endObjectProperties
+
