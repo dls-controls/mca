@@ -382,3 +382,170 @@ record(longin,"$(P)MaxChannels") {
 record(asyn, "$(P)Asyn") {
   field(PORT, "$(PORT)")
 }
+
+########################## DLS comment ###################
+#
+# The following AO records are for EDM screen tweaks only!
+#
+record(ao, $(P)ZERO1) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO2) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO3) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO4) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO5) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO6) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO7) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO8) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO9) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO10) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO11) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO12) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO13) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO14) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO15) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO16) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO17) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO18) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO19) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO20) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO21) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO22) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO23) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO24) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO25) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO26) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO27) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO28) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO29) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO30) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO31) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+record(ao, $(P)ZERO32) {
+  field(DESC, "EDM screen fix")
+  field(DTYP, "Soft Channel")
+  field(VAL, "0")
+}
+
+######### END EDM screen fix #############################
