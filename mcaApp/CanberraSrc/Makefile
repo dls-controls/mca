@@ -38,6 +38,7 @@ LIBRARY_IOC_cygwin32 += mcaCanberra
 LIBRARY_IOC_WIN32    += mcaCanberra
 
 USR_CFLAGS_vxWorks += -DUSE_SOCKETS
+USR_CPPFLAGS_vxWorks += -DUSE_SOCKETS
 # On vxWorks 5.5 and later we use muxTkLib, so uncomment the following line.
 # On earlier versions there are bugs in muxTkLib and we use muxLib instead.
 #USR_CFLAGS_vxWorks += -DUSE_MUXTKLIB
@@ -115,7 +116,7 @@ mcaCanberra_SRCS += icb_control_subs2.c
 mcaCanberra_SRCS += icb_user_subs.c
 mcaCanberra_SRCS += icb_show_modules.c
 mcaCanberra_SRCS += drvIcbAsyn.c
-#mcaCanberra_SRCS += DSA2000.cpp
+mcaCanberra_SRCS += DSA2000.cpp
 mcaCanberra_SRCS += mcaCanberraRegister.c
 mcaCanberra_SRCS_vxWorks += llcProtocol.c
 mcaCanberra_SRCS_vxWorks += llcSocket.c
