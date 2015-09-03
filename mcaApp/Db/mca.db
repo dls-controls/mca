@@ -140,12 +140,20 @@ grecord(calc,"$(P)$(M)Why4") {
     field(INPL,"$(P)$(M)Why3.P NPP NMS")
 }
 
-grecord(swait,"$(P)$(M)WhenAcqStops") {
-    field(SCAN,"I/O Intr")
-    field(INAN,"$(P)$(M).ACQG")
-    field(OUTN,"$(P)$(M)Why1.PROC")
+# JAT: Replaced swait record with an equivalent calcout
+#grecord(swait,"$(P)$(M)WhenAcqStops") {
+#    field(SCAN,"I/O Intr")
+#    field(INAN,"$(P)$(M).ACQG")
+#    field(OUTN,"$(P)$(M)Why1.PROC")
+#    field(CALC,"A")
+#    field(OOPT,"Transition To Zero")
+#}
+grecord(calcout,"$(P)$(M)WhenAcqStops") {
+    field(INPA,"$(P)$(M).ACQG")
+    field(OUT,"$(P)$(M)Why1.PROC")
     field(CALC,"A")
     field(OOPT,"Transition To Zero")
+    field(DOPT,"Use CALC")
 }
 
 # These records are to synchronize with IDL or another client
