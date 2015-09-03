@@ -21,7 +21,33 @@ record(bi,"$(P)SNL_Connected") {
 
 # %gdatag,binary,rw,$(gda_name),ERASE,Clear all spectrums
 record(seq,"$(P)EraseAll") {
-record(bo,"$(P)EraseAll") {
+  field(LNK1,  "$(SCALER).CONT PP")
+  field(DOL1,  "0")
+  field(LNK2,  "$(P)EraseAllCalc.DISA PP")
+  field(DOL2,  "0")
+}
+
+record(calcout,"$(P)EraseAllCalc") {
+  field(SCAN, ".1 second")
+  field(CALC, "A#2")
+  field(INPA, "$(SCALER).SS")  
+  field(OOPT, "When Non-zero")
+  field(OUT,  "$(P)EraseAllTrig.PROC")  
+  field(DISA, "1")  
+}
+
+record(seq,"$(P)EraseAllTrig") {
+  field(LNK1,  "$(P)EraseAllCalc.DISA PP")
+  field(DOL1,  "1")
+  field(LNK2,  "$(P)EraseAllReal.PROC")
+  field(DOL2,  "1")
+# Allow autocount 5 seconds after erase has started  
+  field(LNK3,  "$(SCALER):AutoCount.PROC")
+  field(DOL3,  "1")
+  field(DLY3,  "5")
+}
+
+record(bo,"$(P)EraseAllReal") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_ERASE")
   field(ZNAM, "Done")
@@ -32,7 +58,29 @@ record(bo,"$(P)EraseAll") {
 
 # %gdatag,binary,rw,$(gda_name),ERASESTART,Clear all spectrums and start acquiring
 record(seq,"$(P)EraseStart") {
-record(bo,"$(P)EraseStart") {
+  field(LNK1,  "$(SCALER).CONT PP")
+  field(DOL1,  "0")
+  field(LNK2,  "$(P)EraseStartCalc.DISA PP")
+  field(DOL2,  "0")
+}
+
+record(calcout,"$(P)EraseStartCalc") {
+  field(SCAN, ".1 second")
+  field(CALC, "A#2")
+  field(INPA, "$(SCALER).SS")  
+  field(OOPT, "When Non-zero")
+  field(OUT,  "$(P)EraseStartTrig.PROC")  
+  field(DISA, "1")  
+}
+
+record(seq,"$(P)EraseStartTrig") {
+  field(LNK1,  "$(P)EraseStartCalc.DISA PP")
+  field(DOL1,  "1")
+  field(LNK2,  "$(P)EraseStartReal.PROC")
+  field(DOL2,  "1")
+}
+
+record(bo,"$(P)EraseStartReal") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_ERASE")
   field(ZNAM, "Done")
@@ -43,7 +91,29 @@ record(bo,"$(P)EraseStart") {
 
 # %gdatag,binary,rw,$(gda_name),START,Start acquiring
 record(seq,"$(P)StartAll") {
-record(bo,"$(P)StartAll") {
+  field(LNK1,  "$(SCALER).CONT PP")
+  field(DOL1,  "0")
+  field(LNK2,  "$(P)StartAllCalc.DISA PP")
+  field(DOL2,  "0")
+}
+
+record(calcout,"$(P)StartAllCalc") {
+  field(SCAN, ".1 second")
+  field(CALC, "A#2")
+  field(INPA, "$(SCALER).SS")  
+  field(OOPT, "When Non-zero")
+  field(OUT,  "$(P)StartAllTrig.PROC")  
+  field(DISA, "1")  
+}
+
+record(seq,"$(P)StartAllTrig") {
+  field(LNK1,  "$(P)StartAllCalc.DISA PP")
+  field(DOL1,  "1")
+  field(LNK2,  "$(P)StartAllReal.PROC")
+  field(DOL2,  "1")
+}
+
+record(bo,"$(P)StartAllReal") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_START_ACQUIRE")
   field(ZNAM, "Done")
@@ -64,6 +134,7 @@ record(bo,"$(P)SetAcquiring") {
 record(busy,"$(P)Acquiring") {
   field(ZNAM, "Done")
   field(ONAM, "Acquiring")
+  field(FLNK, "$(SCALER):AutoCount")  
 }
 
 # %gdatag,binary,rw,$(gda_name),STOP,Stop acquiring
@@ -148,20 +219,21 @@ record(ao,"$(P)Dwell") {
 
 # %gdatag,binary,rw,$(gda_name),BINADV,Set internal or external bin advance signal
 #% autosave 2 VAL
-record(ao,"$(P)PresetReal") {
-  field(PINI, "YES")
-  field(DTYP, "asynFloat64")
-  field(OUT,  "@asyn($(PORT),0)MCA_PRESET_REAL")
-  field(VAL,  "0")
-  field(PREC, "3")
-}
-
 record(bo,"$(P)ChannelAdvance") {
   field(PINI, "YES")
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_CH_ADV_SOURCE")
   field(ZNAM, "Internal")
   field(ONAM, "External")
+}
+
+#% autosave 2 VAL
+record(bo,"$(P)InitialChannelAdvance") {
+  field(PINI, "YES")
+  field(DTYP, "asynInt32")
+  field(OUT,  "@asyn($(PORT),0)SIS38XX_INITIAL_CHANNEL_ADVANCE")
+  field(ZNAM, "No")
+  field(ONAM, "Yes")
 }
 
 record(bo,"$(P)CountOnStart") {
@@ -238,11 +310,14 @@ record(mbbi, "$(P)AcquireMode") {
   field(SCAN, "I/O Intr")
 }
 
-record(calcout, "$(P)DisableAutoCount") {
-  field(CALC, "!A")
-  field(INPA, "$(P)Acquiring CP")
-  field(OUT,  "$(SCALER).CONT")
-  field(OOPT, "Transition To Zero")
+record(bo, "$(SCALER):AutoCount") {
+  field(DESC, "Autocount mode managed by MCS mode")
+  field(OUT,  "$(SCALER).CONT PP")
+  field(ZNAM, "OneShot")
+  field(ONAM, "AutoCount")
+  field(PINI, "YES")
+  field(VAL,  "0")
+  field(SDIS, "$(P)Acquiring")
 }
 
 # MUXOUT analogue record to enable switching
