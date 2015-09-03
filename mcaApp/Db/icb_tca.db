@@ -25,6 +25,7 @@ grecord(mbbo,"$(P)$(TCA)THRESHOLD") {
 grecord(mbbo,"$(P)$(TCA)SCA_ENABLE") {
     field(DESC,"SCA enable")
     field(PINI,"YES")
+    field(VAL,"1")
     field(ZRVL,"0")
     field(ZRST,"No")
     field(ONVL,"1")
