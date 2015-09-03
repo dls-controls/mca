@@ -1,3 +1,9 @@
+# % macro, P, Device Prefix
+# % macro, M, Device Suffix
+# % macro, DTYP, Device Type, usually "asynMCA"
+# % macro, NCHAN, Number of channels (bins)
+# % macro, INP, Inlink, usually "@asyn(<portname> <chan>)"
+
 grecord(calc,"$(P)$(M)CheckACQG") {
     field(INPA,"$(P)$(M).ACQG NPP MS")
     field(CALC,"a?1:2")
