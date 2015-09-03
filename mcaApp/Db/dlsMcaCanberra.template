@@ -1,0 +1,633 @@
+# %gdatag,template,dlsMcaCanberra,$(gda_name=),$(gda_desc=)
+
+record(waveform, "$(device):aim_adc$(line):FILE") {
+  field(NELM, "1000")
+  field(FTVL, "UCHAR")
+  field(PINI, "YES")
+}
+
+record(calc, "$(device):aim_adc$(line)CheckACQG") {
+  field(INPA, "$(device):aim_adc$(line).ACQG NPP MS")
+  field(CALC, "a?1:2")
+}
+
+# %gdatag,binary,rw,$(gda_name=),ERASE,Clear current MCA spectrum
+record(bo, "$(device):aim_adc$(line)Erase") {
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).ERAS  PP MS")
+}
+
+# %gdatag,binary,rw,$(gda_name=),ERASESTART,Clear spectrum and start acquiring
+record(bo, "$(device):aim_adc$(line)EraseStart") {
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).ERST  PP MS")
+  field(FLNK, "$(device):aim_adc$(line)SetClientWait")
+}
+
+# %gdatag,binary,rw,$(gda_name=),START,Start acquiring spectrum
+record(bo, "$(device):aim_adc$(line)Start") {
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).STRT  PP MS")
+  field(FLNK, "$(device):aim_adc$(line)SetClientWait")
+}
+
+# %gdatag,binary,rw,$(gda_name=),STOP,Stop acquiring spectrum
+record(bo, "$(device):aim_adc$(line)Stop") {
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).STOP  CA MS")
+}
+
+# %gdatag,pv,rw,$(gda_name=),READRATE,Data readout rate,<pv>.SCAN
+#% autosave 1 SCAN
+record(bo, "$(device):aim_adc$(line)Read") {
+  field(SCAN, "1 second")
+  field(DISV, "0")
+  field(SDIS, "$(device):aim_adc$(line).ACQG  NPP NMS")
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).READ  CA NMS")
+}
+
+# %gdatag,pv,rw,$(gda_name=),STATRATE,Acquisition status update rate,<pv>.SCAN
+#% autosave 1 SCAN
+record(bo, "$(device):aim_adc$(line)Status") {
+  field(SCAN, ".1 second")
+  field(DISV, "0")
+  field(SDIS, "$(device):aim_adc$(line).ACQG  NPP NMS")
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line).PROC  CA NMS")
+}
+
+record(calc, "$(device):aim_adc$(line)Why4") {
+  field(CALC, "(a|b|c|d|e|f|g|h|i|j|k|l)=0")
+  field(INPA, "$(device):aim_adc$(line)Why1.M NPP NMS")
+  field(INPB, "$(device):aim_adc$(line)Why1.N NPP NMS")
+  field(INPC, "$(device):aim_adc$(line)Why1.O NPP NMS")
+  field(INPD, "$(device):aim_adc$(line)Why1.P NPP NMS")
+  field(INPE, "$(device):aim_adc$(line)Why2.M NPP NMS")
+  field(INPF, "$(device):aim_adc$(line)Why2.N NPP NMS")
+  field(INPG, "$(device):aim_adc$(line)Why2.O NPP NMS")
+  field(INPH, "$(device):aim_adc$(line)Why2.P NPP NMS")
+  field(INPI, "$(device):aim_adc$(line)Why3.M NPP NMS")
+  field(INPJ, "$(device):aim_adc$(line)Why3.N NPP NMS")
+  field(INPK, "$(device):aim_adc$(line)Why3.O NPP NMS")
+  field(INPL, "$(device):aim_adc$(line)Why3.P NPP NMS")
+}
+
+# These records are to synchronize with IDL or another client
+#% autosave 1 VAL
+record(bo, "$(device):aim_adc$(line)EnableWait") {
+  field(ZNAM, "Disable")
+  field(ONAM, "Enable")
+}
+
+record(bo, "$(device):aim_adc$(line)SetClientWait") {
+  field(DISV, "0")
+  field(SDIS, "$(device):aim_adc$(line)EnableWait NPP NMS")
+  field(OMSL, "closed_loop")
+  field(DOL, "1")
+  field(OUT, "$(device):aim_adc$(line)ClientWait PP MS")
+}
+
+record(busy,"$(device):aim_adc$(line)ClientWait") {
+}
+
+# This is the MCA record itself
+# %gdatag,mca,rw,$(gda_name=),MCA,Canberra MCA record
+# % gda,interface,multiChannelAnalyser$(line),detector,Detectors,Detector Controls
+# % gda,subsystem,multiChannelAnalyser$(line),aim,AIM$(line),MCA AIM Interface
+#% autosave 1 NMAX NUSE PLTM PRTM PCTL PCTH PCT HIGH HIHI MODE CHAS DWEL PSCL
+#% autosave 2 R0LO R0HI R1LO R1HI R2LO R2HI R3LO R3HI R4LO R4HI
+record(mca, "$(device):aim_adc$(line)") {
+  field(DTYP, "asynMCA")
+  field(FLNK, "0")
+  field(PINI, "YES")
+  field(NMAX, "$(maxChans)")
+  field(PREC, "2")
+  field(NUSE, "$(maxChans)")
+  field(INP, "@asyn($(aimport) 0)")
+# Alarm setpoints, severity and hysteresis for deadtime
+  field(HIHI, "70.")
+  field(HHSV, "MAJOR")
+  field(HIGH, "40.")
+  field(HSV, "MINOR")
+  field(LOLO, "0.")
+  field(LLSV, "NO_ALARM")
+  field(LOW, "0.")
+  field(LSV, "NO_ALARM")
+  field(HYST, "2.")
+}
+
+record(calcout, $(device):aim_adc$(line):CROILO0) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R0LO")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA1_LOW PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+record(calcout, $(device):aim_adc$(line):CROIHI0) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R0HI")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA1_HI PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+record(calcout, $(device):aim_adc$(line):CROILO1) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R1LO")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA2_LOW PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+record(calcout, $(device):aim_adc$(line):CROIHI1) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R1HI")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA2_HI PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+record(calcout, $(device):aim_adc$(line):CROILO2) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R2LO")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA3_LOW PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+record(calcout, $(device):aim_adc$(line):CROIHI2) {
+  field(SCAN, ".5 second")
+  field(DTYP, "Soft Channel")
+  field(CALC, "(A/B)*100")
+  field(INPA, "$(device):aim_adc$(line).R2HI")
+  field(INPB, "$(device):aim_adc$(line).NUSE")
+  field(OUT, "$(device):tca$(line)SCA3_HI PP")
+  field(OOPT, "Every Time")
+  field(DOPT, "Use CALC")
+}
+
+
+# Database for Canberra 9635 ADC
+#   Mark Rivers
+#   September 16, 2000
+# %gdatag,mbbinary,rw,$(gda_name=),ADCGAIN
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)GAIN") {
+  field(DESC, "ADC conversion gain")
+  field(RVAL, "2048")
+  field(PINI, "YES")
+  field(ZRVL, "256")
+  field(ZRST, "256")
+  field(ONVL, "512")
+  field(ONST, "512")
+  field(TWVL, "1024")
+  field(TWST, "1024")
+  field(THVL, "2048")
+  field(THST, "2048")
+  field(FRVL, "4096")
+  field(FRST, "4096")
+  field(FVVL, "8192")
+  field(FVST, "8192")
+  field(SXVL, "16384")
+  field(SXST, "16384")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))GAIN")
+}
+
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)RANGE") {
+  field(DESC, "ADC conversion range")
+  field(RVAL, "2048")
+  field(PINI, "NO")
+  field(ZRVL, "256")
+  field(ZRST, "256")
+  field(ONVL, "512")
+  field(ONST, "512")
+  field(TWVL, "1024")
+  field(TWST, "1024")
+  field(THVL, "2048")
+  field(THST, "2048")
+  field(FRVL, "4096")
+  field(FRST, "4096")
+  field(FVVL, "8192")
+  field(FVST, "8192")
+  field(SXVL, "16384")
+  field(SXST, "16384")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))RANGE")
+}
+
+# %gdatag,pv,rw,$(gda_name=),ADCOFFSET
+#% autosave 1 VAL
+record(ao, "$(device):adc$(line)OFFSET") {
+  field(DESC, "ADC digital offset")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "16128")
+  field(HOPR, "16128")
+  field(PREC, "0")
+  field(VAL, "0")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(adcport))OFFSET")
+}
+
+# %gdatag,pv,rw,$(gda_name=),ADCLLD
+#% autosave 1 RVAL
+record(ao, "$(device):adc$(line)LLD") {
+  field(DESC, "ADC lower level discr.")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "3")
+  field(VAL, "1")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(adcport))LLD")
+}
+
+# %gdatag,pv,rw,$(gda_name=),ADCULD
+#% autosave 1 RVAL
+record(ao, "$(device):adc$(line)ULD") {
+  field(DESC, "ADC upper level discr.")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "3")
+  field(VAL, "100")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(adcport))ULD")
+}
+
+#% autosave 1 RVAL
+record(ao, "$(device):adc$(line)ZERO") {
+  field(DESC, "Zero offset")
+  field(PINI, "YES")
+  field(DRVL, "-3.0")
+  field(LOPR, "-3.0")
+  field(DRVH, "3.0")
+  field(HOPR, "3.0")
+  field(PREC, "3")
+  field(VAL, "0.")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(adcport))ZERO")
+}
+
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)GMOD") {
+  field(DESC, "Gate mode")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Coincidence")
+  field(ONVL, "1")
+  field(ONST, "Anti-coinc.")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))GATE_MODE")
+}
+
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)CMOD") {
+  field(DESC, "Coincidence mode")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Early")
+  field(ONVL, "1")
+  field(ONST, "Late")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))COINCIDENCE_MODE")
+}
+
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)PMOD") {
+  field(DESC, "Peak detect mode")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Auto")
+  field(ONVL, "1")
+  field(ONST, "Delayed")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))PEAK_MODE")
+}
+
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)AMOD") {
+  field(DESC, "Acquisition mode")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "PHA")
+  field(ONVL, "1")
+  field(ONST, "SVA")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))ACQUISITION_MODE")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):adc$(line)TMOD") {
+  field(DESC, "Data transfer mode")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Overlapped")
+  field(ONVL, "1")
+  field(ONST, "Non-overlapped")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(adcport))TRANSFER_MODE")
+}
+
+#% autosave 1 SCAN
+record(bo, "$(device):adc$(line)READBACK") {
+  field(DESC, "Readback scan")
+  field(SCAN, "10 second")
+  field(FLNK, "$(device):adc$(line)ZERORBV")
+}
+
+record(ai, "$(device):adc$(line)ZERORBV") {
+  field(DESC, "Zero offset readback")
+  field(LOPR, "-3.0")
+  field(HOPR, "3.0")
+  field(PREC, "3")
+  field(DTYP, "asynFloat64")
+  field(INP, "@asyn($(adcport))ZERO_READBACK")
+}
+
+
+# Database for Canberra 2016 AMP/TCA
+#   Mark Rivers
+#   October 12, 2000
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)POLARITY") {
+  field(DESC, "Output polarity")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Normal")
+  field(ONVL, "1")
+  field(ONST, "Inverted")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))POLARITY")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)THRESHOLD") {
+  field(DESC, "ICR threshold")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Auto")
+  field(ONVL, "1")
+  field(ONST, "Manual")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))THRESHOLD")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA_ENABLE") {
+  field(DESC, "SCA enable")
+  field(PINI, "YES")
+  field(VAL, "1")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))SCA_ENABLE")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA1_GATE") {
+  field(DESC, "SCA 1 gate enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Disable")
+  field(ONVL, "1")
+  field(ONST, "Enable")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))GATE1")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA2_GATE") {
+  field(DESC, "SCA 2 gate enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Disable")
+  field(ONVL, "1")
+  field(ONST, "Enable")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))GATE2")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA3_GATE") {
+  field(DESC, "SCA 3 gate enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "Disable")
+  field(ONVL, "1")
+  field(ONST, "Enable")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))GATE3")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)TCA_SELECT") {
+  field(DESC, "Select TCA")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))TCA_SELECT")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)PUR_ENABLE") {
+  field(DESC, "PUR enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))PUR_ENABLE")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA1_PUR") {
+  field(DESC, "SCA 1 PUR enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))PUR1")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA2_PUR") {
+  field(DESC, "SCA 2 PUR enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))PUR2")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)SCA3_PUR") {
+  field(DESC, "SCA 3 PUR enable")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))PUR3")
+}
+#% autosave 1 RVAL
+record(mbbo, "$(device):tca$(line)PUR_AMP") {
+  field(DESC, "PUR AMP")
+  field(PINI, "YES")
+  field(ZRVL, "0")
+  field(ZRST, "No")
+  field(ONVL, "1")
+  field(ONST, "Yes")
+  field(DTYP, "asynInt32")
+  field(OUT, "@asyn($(tcaport))PUR_AMP")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA1_LOW") {
+  field(DESC, "SCA 1 low limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))LOW1")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA1_HI") {
+  field(DESC, "SCA 1 high limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))HI1")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA2_LOW") {
+  field(DESC, "SCA 2 low limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))LOW2")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA2_HI") {
+  field(DESC, "SCA 2 high limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))HI2")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA3_LOW") {
+  field(DESC, "SCA 3 low limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))LOW3")
+}
+#% autosave 1 VAL
+record(ao, "$(device):tca$(line)SCA3_HI") {
+  field(DESC, "SCA 3 high limit")
+  field(PINI, "YES")
+  field(DRVL, "0")
+  field(LOPR, "0")
+  field(DRVH, "100")
+  field(HOPR, "100")
+  field(PREC, "2")
+  field(DTYP, "asynFloat64")
+  field(OUT, "@asyn($(tcaport))HI3")
+}
+#% autosave 1 RVAL
+record(bo, "$(device):tca$(line)READBACK") {
+  field(DESC, "Readback scan")
+  field(PINI, "NO")
+  field(SCAN, "10 second")
+  field(FLNK, "$(device):tca$(line)STATUS")
+}
+#% autosave 1 RVAL
+record(mbbi, "$(device):tca$(line)STATUS") {
+  field(DESC, "TCA status")
+  field(ZRVL, "0")
+  field(ZRST, "Online")
+  field(ONVL, "1")
+  field(ONST, "Self-test error")
+  field(TWVL, "2")
+  field(TWST, "Module reset")
+  field(THVL, "3")
+  field(THST, "Can't commun.")
+  field(THSV, "MAJOR")
+  field(DTYP, "asynInt32")
+  field(INP, "@asyn($(tcaport))STATUS")
+}
+#% autosave 1 RVAL
+record(ao, "$(device):tca$(line)SCA_CAL") {
+  field(DESC, "ROI to SCA calibration")
+  field(DRVL, ".5")
+  field(LOPR, ".5")
+  field(DRVH, "1.5")
+  field(HOPR, "1.5")
+  field(PREC, "4")
+  field(VAL, "1.0")
+}
+#% autosave 1 RVAL
+record(bo, "$(device):tca$(line)ROI_SCA_ENABLE") {
+  field(DESC, "ROI to SCA enable")
+  field(ZNAM, "Disable")
+  field(ONAM, "Enable")
+  field(VAL, "1")
+}
+
+# A couple of dummy records just to make the GDA interface happy
+# % gda,subsystem,multiChannelAnalyser$(line),adc,ADC$(line),MCA ADC Interface
+record(bo, "$(device):adc$(line)") {
+}
+
+# % gda,subsystem,multiChannelAnalyser$(line),tca,TCA$(line),MCA TCA Interface
+record(bo, "$(device):tca$(line)") {
+}
