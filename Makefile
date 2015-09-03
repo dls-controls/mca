@@ -8,3 +8,9 @@ DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard iocBoot))
 mcaApp_DEPEND_DIRS  = configure
 iocBoot_DEPEND_DIRS = mcaApp
 include $(TOP)/configure/RULES_TOP
+
+docs:
+	pushd documentation; make docs; popd
+
+
+

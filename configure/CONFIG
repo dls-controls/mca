@@ -2,7 +2,12 @@
 include $(TOP)/configure/CONFIG_APP
 # Add any changes to make definitions here
 
-#CROSS_COMPILER_TARGET_ARCHS = vxWorks-68040
+#CROSS_COMPILER_TARGET_ARCHS = vxWorks-ppc604_long
+
+# At DLS we only build for the vxWorks architecture since
+# we do not have the correct linux kernel version to use llc
+# and we do not have libnet installed (which requires root to run anyway)
+#BUILD_ARCHS = vxWorks-ppc604_long
 
 # Use this when your IOC and the host use different paths
 # to access the application. Typically this will be 
