@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+  "/usr/share/sgml/docbook/xml-dtd-4.3-1.0-25/docbookx.dtd">
+ 
+<article>
+  <articleinfo>
+    <title>EPICS Canberra mca Support Module User Guide</title>
+
+    <copyright>
+      <year>2007</year>
+      <holder>Copyright 2007 Diamond Light Source Limited</holder>
+    </copyright>
+
+  </articleinfo>
+
+  <sect1>
+    <title>Canberra 2016 Amplifier / Triple Channel Analyser</title>
+
+    <para>Please consult <ulink
+url="http://diamdocs2003.diamond.ac.uk/sites/default/TECHNICAL%20DIVISION%20(TEC
+)/Controls%20and%20Interlocks%20CTRL/Supplier%20Documentation/Canberra/2016%
+20Amplifier-TCA%20User%27s%20Manual.pdf">Canberra Industries  User Guide to the
+Model
+2016 Amplifier/TCA </ulink></para>
+      <sect2>
+      <title>EDM Screen</title>
+        <mediaobject>
+            <imageobject>
+            <imagedata fileref="images/xxIcbTCA_edl.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+            <phrase>The EPICS edm screen for the TCA</phrase>
+            </textobject>
+            <caption>
+            <para>The EPICS edm screen for the TCA.</para>
+            </caption>
+        </mediaobject>
+        <sect3>
+        <title>Output Polarity</title>
+        <para>The input polarity of the amplifier. Options are Normal or
+Inverted</para>
+        </sect3>
+        <sect3>
+        <title>ICR Threshold</title>
+        <para>The Fast Discriminator circuit provides an Input Count Rate to
+ratemeters and a front panel LED. It's output is also used in the Pile 
+Up Rejection system. An event is deeemed to have occurred if a signal within
+the Fast Discriminator exceeds a threshold. This threshold can be set manually
+using a front panel adjustment or automatically. Options are Manual</para>
+        </sect3>
+        <sect3>
+        <title>Enable SCA's</title>
+        <para>There are configurations involving multiple 2016 modules where
+you may wish to disable the Single Channel Analyser outputs from all but 1.
+Options are Yes or No.</para>
+        </sect3>
+        <sect3>
+        <title>Status Rate</title>
+        <para>The period between re-reads of the module settings. Default
+value is 10 seconds.</para>
+        </sect3>
+        <sect3>
+        <title>PUR Enable</title>
+        <para>Enables the use of a Pile Up Rejector to reject events during
+the time that a pile-up is deemed to have occurred based on the signal from
+the Fast Discriminator. Options are Yes or No.</para>
+        </sect3>
+        <sect3>
+        <title>PUR Enable</title>
+        <para>Enables the use of a Pile Up Rejector to reject events during
+the time that a pile-up is deemed to have occurred based on the signal from
+the Fast Discriminator, the SCA's ROI ( Single Channel Analyser's Region of
+Interest) lower reference level (LLD) and upper reference level (ULD).
+Options are Yes or No.
+</para>
+        </sect3>
+        <sect3>
+        <title>PUR Amp</title>
+        <para>This is another switch to enable the Pile Up Rejector. Options are
+Yes or No.
+</para>
+        </sect3>
+        <sect3>
+        <title>Select TCA</title>
+        <para>There are configurations involving multiple 2016 modules where
+you may wish to disable the Amplifier output from all but 1. Options are Yes
+or No.
+</para>
+        </sect3>
+        <sect3>
+        <title>Status</title>
+        <para>Displays the status of the module. Possible values are Online,
+Self-test error, Module reset or Can't commun.
+</para>
+        </sect3>
+        <sect3>
+        <title>ROIs of SCAs Enable</title>
+        <para>Allows you to control over whether input pulse discrimination
+based on a region of interest is used to control the outputs of the SCA's.
+Options are Enable or Disable.
+</para>
+        </sect3>
+        <sect3>
+        <title>ROIs of SCAs Calibration</title>
+        <para>Allows overall calibration of the region of interest used in
+the input pulse discrimination. Range is 0.5 to 1.5.
+</para>
+        </sect3>
+        <sect3>
+        <title>Gate</title>
+        <para>There is 1 gate per SCA used to enable the SCA. Options are
+Enable or Disable.
+</para>
+        </sect3>
+        <sect3>
+        <title>PUR</title>
+        <para>There is 1 PUR setting per SCA used to activate the Pile-Up
+Rejector circuitry for that SCA. Options are Yes or No.
+Enable or Disable.
+</para>
+        </sect3>
+        <sect3>
+        <title>Low & High </title>
+        <para>There is 1 Low and 1 High setting per SCA. The FPGA within the
+2016 uses these values to determine if an input pulse should cause a pulse
+on the associated SCA. The values are in percentage of the overall range of
+the signal into the comparator within the module. The range is 1 to 100%.
+</para>
+        </sect3>
+      </sect2>
+  </sect1>    
+</article>

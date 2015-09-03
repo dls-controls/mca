@@ -1,0 +1,6 @@
+This project is documented using Doxygen.
+To build the documentation use the command: 
+	>make docs
+
+To view the documentation open the file:
+	>documentation/ProgrammerGuide/html/index.html
