@@ -16,10 +16,12 @@ DIRS += SISSrc
 SISSrc_DEPEND_DIRS = mcaSrc
 
 # Support for Rontec XFlash
-DIRS += RontecSrc
+#DIRS += RontecSrc
 RontecSrc_DEPEND_DIRS = mcaSrc
 
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *db*))
 DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *Db*))
+DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *opi*))
+DIRS := $(DIRS) $(filter-out $(DIRS), $(wildcard *op*))
 include $(TOP)/configure/RULES_DIRS
 
