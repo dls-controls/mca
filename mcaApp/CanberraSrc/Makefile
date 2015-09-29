@@ -59,6 +59,7 @@ endif
 #                   We dont yet use this recent kernel but we do need to build for linux
 #                   and we don't have libnet on site.
 USR_CFLAGS_Linux += -DUSE_SOCKETS
+USR_CPPFLAGS_Linux += -DUSE_SOCKETS
 # If LLC sockets are not being used on Linux, and libnet is being used instead, then
 # uncomment the following lines.
 ### USR_CFLAGS_Linux           += -DUSE_LIBNET
