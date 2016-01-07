@@ -6,7 +6,6 @@
 # % gui, $(name), edm, sis3820.edl, $(edmMacros)
 # % macro, gda_name, Name for GDA
 # % macro, gda_desc, Description for GDA
-# %gdatag,template,mcaGroup,$(gda_name),$(gda_desc)
 
 # SIS38XX.template
 # Mark Rivers
@@ -19,7 +18,6 @@ record(bi,"$(P)SNL_Connected") {
   field(OSV,  "NO_ALARM")
 }
 
-# %gdatag,binary,rw,$(gda_name),ERASE,Clear all spectrums
 record(seq,"$(P)EraseAll") {
   field(LNK1,  "$(SCALER).CONT PP")
   field(DOL1,  "0")
@@ -56,7 +54,6 @@ record(bo,"$(P)EraseAllReal") {
   field(FLNK, "$(P)ReadAllOnce")
 }
 
-# %gdatag,binary,rw,$(gda_name),ERASESTART,Clear all spectrums and start acquiring
 record(seq,"$(P)EraseStart") {
   field(LNK1,  "$(SCALER).CONT PP")
   field(DOL1,  "0")
@@ -89,7 +86,6 @@ record(bo,"$(P)EraseStartReal") {
   field(FLNK, "$(P)StartAll.PROC")
 }
 
-# %gdatag,binary,rw,$(gda_name),START,Start acquiring
 record(seq,"$(P)StartAll") {
   field(LNK1,  "$(SCALER).CONT PP")
   field(DOL1,  "0")
@@ -130,14 +126,12 @@ record(bo,"$(P)SetAcquiring") {
   field(FLNK, "$(P)SetClientWait.PROC")
 }
 
-# %gdatag,binary,ro,$(gda_name),ACQ,Acquiring status
 record(busy,"$(P)Acquiring") {
   field(ZNAM, "Done")
   field(ONAM, "Acquiring")
   field(FLNK, "$(SCALER):AutoCount")  
 }
 
-# %gdatag,binary,rw,$(gda_name),STOP,Stop acquiring
 record(bo,"$(P)StopAll") {
   field(DTYP, "asynInt32")
   field(OUT,  "@asyn($(PORT),0)MCA_STOP_ACQUIRE")
@@ -146,7 +140,6 @@ record(bo,"$(P)StopAll") {
   field(VAL,  "1")
 }
 
-# %gdatag,pv,rw,$(gda_name),TACQ,Set total acquisition time
 #% autosave 2 VAL
 record(ao,"$(P)PresetReal") {
   field(PINI, "YES")
@@ -164,7 +157,6 @@ record(bi,"$(P)HardwareAcq") {
   field(SCAN, "I/O Intr")
 }
 
-# %gdatag,pv,ro,$(gda_name),TREAL,Real time since start of acquisition
 record(ai,"$(P)ElapsedReal") {
   field(DTYP, "asynFloat64")
   field(INP,  "@asyn($(PORT),0)MCA_ELAPSED_REAL")
@@ -172,7 +164,6 @@ record(ai,"$(P)ElapsedReal") {
   field(SCAN, "I/O Intr")
 }
 
-# %gdatag,pv,rw,$(gda_name),READRATE,Data update rate,<pv>.SCAN
 #% autosave 2 VAL SCAN
 record(bo,"$(P)ReadAll") {
   field(SCAN, "1 second")
@@ -193,7 +184,6 @@ record(bo,"$(P)DoReadAll") {
   field(ONAM, "Read")
 }
 
-# %gdatag,pv,rw,$(gda_name),NBINS,Number of bins to use in spectrum
 #% autosave 2 VAL
 record(longout,"$(P)NuseAll") {
   field(PINI, "YES")
@@ -207,7 +197,6 @@ record(longin,"$(P)CurrentChannel") {
   field(SCAN, "I/O Intr")
 }
 
-# %gdatag,pv,rw,$(gda_name),TDWELL,Set integration time [s] for incrementing bin number
 #% autosave 2 VAL
 record(ao,"$(P)Dwell") {
   field(PINI, "YES")
@@ -217,7 +206,6 @@ record(ao,"$(P)Dwell") {
   field(PREC, "3")
 }
 
-# %gdatag,binary,rw,$(gda_name),BINADV,Set internal or external bin advance signal
 #% autosave 2 VAL
 record(bo,"$(P)ChannelAdvance") {
   field(PINI, "YES")
@@ -264,7 +252,6 @@ record(bo, "$(P)Channel1Source") {
   field(ONAM, "External")
 }
 
-# %gdatag,pv,rw,$(gda_name),EXTPRE,External bin advance prescaler
 #% autosave 2 VAL
 record(longout,"$(P)Prescale") {
   field(PINI, "YES")

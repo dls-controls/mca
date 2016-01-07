@@ -1,5 +1,3 @@
-# %gdatag,template,dlsMcaCanberra,$(gda_name=),$(gda_desc=)
-
 record(waveform, "$(device):aim_adc$(line):FILE") {
   field(NELM, "1000")
   field(FTVL, "UCHAR")
@@ -11,14 +9,12 @@ record(calc, "$(device):aim_adc$(line)CheckACQG") {
   field(CALC, "a?1:2")
 }
 
-# %gdatag,binary,rw,$(gda_name=),ERASE,Clear current MCA spectrum
 record(bo, "$(device):aim_adc$(line)Erase") {
   field(OMSL, "closed_loop")
   field(DOL, "1")
   field(OUT, "$(device):aim_adc$(line).ERAS  PP MS")
 }
 
-# %gdatag,binary,rw,$(gda_name=),ERASESTART,Clear spectrum and start acquiring
 record(bo, "$(device):aim_adc$(line)EraseStart") {
   field(OMSL, "closed_loop")
   field(DOL, "1")
@@ -26,7 +22,6 @@ record(bo, "$(device):aim_adc$(line)EraseStart") {
   field(FLNK, "$(device):aim_adc$(line)SetClientWait")
 }
 
-# %gdatag,binary,rw,$(gda_name=),START,Start acquiring spectrum
 record(bo, "$(device):aim_adc$(line)Start") {
   field(OMSL, "closed_loop")
   field(DOL, "1")
@@ -34,14 +29,12 @@ record(bo, "$(device):aim_adc$(line)Start") {
   field(FLNK, "$(device):aim_adc$(line)SetClientWait")
 }
 
-# %gdatag,binary,rw,$(gda_name=),STOP,Stop acquiring spectrum
 record(bo, "$(device):aim_adc$(line)Stop") {
   field(OMSL, "closed_loop")
   field(DOL, "1")
   field(OUT, "$(device):aim_adc$(line).STOP  CA MS")
 }
 
-# %gdatag,pv,rw,$(gda_name=),READRATE,Data readout rate,<pv>.SCAN
 #% autosave 1 SCAN
 record(bo, "$(device):aim_adc$(line)Read") {
   field(SCAN, "1 second")
@@ -52,7 +45,6 @@ record(bo, "$(device):aim_adc$(line)Read") {
   field(OUT, "$(device):aim_adc$(line).READ  CA NMS")
 }
 
-# %gdatag,pv,rw,$(gda_name=),STATRATE,Acquisition status update rate,<pv>.SCAN
 #% autosave 1 SCAN
 record(bo, "$(device):aim_adc$(line)Status") {
   field(SCAN, ".1 second")
@@ -98,9 +90,6 @@ record(busy,"$(device):aim_adc$(line)ClientWait") {
 }
 
 # This is the MCA record itself
-# %gdatag,mca,rw,$(gda_name=),MCA,Canberra MCA record
-# % gda,interface,multiChannelAnalyser$(line),detector,Detectors,Detector Controls
-# % gda,subsystem,multiChannelAnalyser$(line),aim,AIM$(line),MCA AIM Interface
 #% autosave 1 NMAX NUSE PLTM PRTM PCTL PCTH PCT HIGH HIHI MODE CHAS DWEL PSCL
 #% autosave 2 R0LO R0HI R1LO R1HI R2LO R2HI R3LO R3HI R4LO R4HI
 record(mca, "$(device):aim_adc$(line)") {
@@ -193,7 +182,6 @@ record(calcout, $(device):aim_adc$(line):CROIHI2) {
 # Database for Canberra 9635 ADC
 #   Mark Rivers
 #   September 16, 2000
-# %gdatag,mbbinary,rw,$(gda_name=),ADCGAIN
 #% autosave 1 RVAL
 record(mbbo, "$(device):adc$(line)GAIN") {
   field(DESC, "ADC conversion gain")
@@ -240,7 +228,6 @@ record(mbbo, "$(device):adc$(line)RANGE") {
   field(OUT, "@asyn($(adcport))RANGE")
 }
 
-# %gdatag,pv,rw,$(gda_name=),ADCOFFSET
 #% autosave 1 VAL
 record(ao, "$(device):adc$(line)OFFSET") {
   field(DESC, "ADC digital offset")
@@ -255,7 +242,6 @@ record(ao, "$(device):adc$(line)OFFSET") {
   field(OUT, "@asyn($(adcport))OFFSET")
 }
 
-# %gdatag,pv,rw,$(gda_name=),ADCLLD
 #% autosave 1 RVAL
 record(ao, "$(device):adc$(line)LLD") {
   field(DESC, "ADC lower level discr.")
@@ -270,7 +256,6 @@ record(ao, "$(device):adc$(line)LLD") {
   field(OUT, "@asyn($(adcport))LLD")
 }
 
-# %gdatag,pv,rw,$(gda_name=),ADCULD
 #% autosave 1 RVAL
 record(ao, "$(device):adc$(line)ULD") {
   field(DESC, "ADC upper level discr.")
@@ -624,10 +609,8 @@ record(bo, "$(device):tca$(line)ROI_SCA_ENABLE") {
 }
 
 # A couple of dummy records just to make the GDA interface happy
-# % gda,subsystem,multiChannelAnalyser$(line),adc,ADC$(line),MCA ADC Interface
 record(bo, "$(device):adc$(line)") {
 }
 
-# % gda,subsystem,multiChannelAnalyser$(line),tca,TCA$(line),MCA TCA Interface
 record(bo, "$(device):tca$(line)") {
 }

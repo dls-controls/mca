@@ -7,7 +7,6 @@
 # % macro, S, Signal number starting from 1
 # % macro, gda_name, Name for GDA
 
-# %gdatag,mca,rw,$(gda_name),SIG$(S),SIS3820 input signal number $(S)
 grecord(mca,"$(P)$(M)")
 {
     field(DTYP, "$(DTYP)")
